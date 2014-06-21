@@ -49,6 +49,16 @@ namespace BlupiEdit
 				{
 					LevelData.LoadLevel(ls.UserID, ls.LevelNum);
 					// TODO: more stuff
+					StringBuilder sb = new StringBuilder("BlupiEdit - Speedy Blupi");
+					if (LevelData.IsBlupi2) sb.Append(" 2");
+					sb.Append(" - ");
+					if (ls.UserID == 0)
+						sb.AppendFormat("World {0:000}", ls.LevelNum);
+					else
+						sb.AppendFormat("User {0} Design {1:000}", ls.UserID, ls.LevelNum);
+					if (!string.IsNullOrEmpty(LevelData.CurrentLevel.LevelName))
+						sb.AppendFormat(" - {0}", LevelData.CurrentLevel.LevelName);
+					Text = sb.ToString();
 				}
 		}
 	}
