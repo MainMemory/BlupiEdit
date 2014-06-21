@@ -11,7 +11,7 @@ namespace BlupiEdit
 {
 	public partial class MainForm : Form
 	{
-
+		int userid, levelnum;
 
 		public MainForm()
 		{
@@ -24,9 +24,18 @@ namespace BlupiEdit
 				LoadGame(Program.Arguments[0]);
 		}
 
-		private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-
+			if (LevelData.CurrentLevel != null)
+				switch (MessageBox.Show(this, "Do you want to save?", "BlupiEdit", MessageBoxButtons.YesNoCancel))
+				{
+					case DialogResult.Yes:
+						LevelData.SaveLevel();
+						break;
+					case DialogResult.Cancel:
+						e.Cancel = true;
+						break;
+				}
 		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,22 +53,53 @@ namespace BlupiEdit
 
 		private void changeLevelToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			using (LevelSelectForm ls = new LevelSelectForm())
+			using (LevelSelectForm ls = new LevelSelectForm(LevelSelectFormMode.Open))
 				if (ls.ShowDialog(this) == DialogResult.OK)
 				{
-					LevelData.LoadLevel(ls.UserID, ls.LevelNum);
+					userid = ls.UserID;
+					levelnum = ls.LevelNum;
+					LevelData.LoadLevel(userid, levelnum);
 					// TODO: more stuff
-					StringBuilder sb = new StringBuilder("BlupiEdit - Speedy Blupi");
-					if (LevelData.IsBlupi2) sb.Append(" 2");
-					sb.Append(" - ");
-					if (ls.UserID == 0)
-						sb.AppendFormat("World {0:000}", ls.LevelNum);
-					else
-						sb.AppendFormat("User {0} Design {1:000}", ls.UserID, ls.LevelNum);
-					if (!string.IsNullOrEmpty(LevelData.CurrentLevel.LevelName))
-						sb.AppendFormat(" - {0}", LevelData.CurrentLevel.LevelName);
-					Text = sb.ToString();
+					UpdateFormText();
+					saveAsToolStripMenuItem.Enabled = saveToolStripMenuItem.Enabled = true;
 				}
+		}
+
+		private void UpdateFormText()
+		{
+			StringBuilder sb = new StringBuilder("BlupiEdit - Speedy Blupi");
+			if (LevelData.IsBlupi2) sb.Append(" 2");
+			sb.Append(" - ");
+			if (userid == 0)
+				sb.AppendFormat("World {0:000}", levelnum);
+			else
+				sb.AppendFormat("User {0} Design {1:000}", userid, levelnum);
+			if (!string.IsNullOrEmpty(LevelData.CurrentLevel.LevelName))
+				sb.AppendFormat(" - {0}", LevelData.CurrentLevel.LevelName);
+			Text = sb.ToString();
+		}
+
+		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			LevelData.SaveLevel();
+		}
+
+		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			using (LevelSelectForm ls = new LevelSelectForm(LevelSelectFormMode.Save))
+				if (ls.ShowDialog(this) == DialogResult.OK)
+				{
+					userid = ls.UserID;
+					levelnum = ls.LevelNum;
+					LevelData.CurrentLevelPath = LevelData.GetLevelName(userid, levelnum);
+					LevelData.SaveLevel();
+					UpdateFormText();
+				}
+		}
+
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Close();
 		}
 	}
 }

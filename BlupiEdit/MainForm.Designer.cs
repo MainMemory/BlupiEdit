@@ -38,10 +38,22 @@
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+			this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+			this.tilePanel = new System.Windows.Forms.UserControl();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.objectPanel = new System.Windows.Forms.UserControl();
+			this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
+			this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
+			this.tabPage1.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			this.tabPage2.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -88,6 +100,7 @@
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
 			this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.saveToolStripMenuItem.Text = "&Save";
+			this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
@@ -95,6 +108,7 @@
 			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
 			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.saveAsToolStripMenuItem.Text = "Save &As...";
+			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
@@ -106,6 +120,7 @@
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
 			// tabControl1
 			// 
@@ -121,6 +136,7 @@
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.tableLayoutPanel1);
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -129,8 +145,54 @@
 			this.tabPage1.Text = "Tiles";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.Controls.Add(this.vScrollBar1, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.hScrollBar1, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.tilePanel, 0, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(570, 506);
+			this.tableLayoutPanel1.TabIndex = 0;
+			// 
+			// vScrollBar1
+			// 
+			this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)));
+			this.vScrollBar1.Enabled = false;
+			this.vScrollBar1.Location = new System.Drawing.Point(553, 0);
+			this.vScrollBar1.Name = "vScrollBar1";
+			this.vScrollBar1.Size = new System.Drawing.Size(17, 489);
+			this.vScrollBar1.TabIndex = 0;
+			// 
+			// hScrollBar1
+			// 
+			this.hScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.hScrollBar1.Enabled = false;
+			this.hScrollBar1.Location = new System.Drawing.Point(0, 489);
+			this.hScrollBar1.Name = "hScrollBar1";
+			this.hScrollBar1.Size = new System.Drawing.Size(553, 17);
+			this.hScrollBar1.TabIndex = 1;
+			// 
+			// tilePanel
+			// 
+			this.tilePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tilePanel.Location = new System.Drawing.Point(3, 3);
+			this.tilePanel.Name = "tilePanel";
+			this.tilePanel.Size = new System.Drawing.Size(547, 483);
+			this.tilePanel.TabIndex = 2;
+			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.tableLayoutPanel2);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -138,6 +200,51 @@
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Objects";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 2;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.Controls.Add(this.objectPanel, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.vScrollBar2, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.hScrollBar2, 0, 1);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 2;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(570, 506);
+			this.tableLayoutPanel2.TabIndex = 1;
+			// 
+			// objectPanel
+			// 
+			this.objectPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.objectPanel.Location = new System.Drawing.Point(3, 3);
+			this.objectPanel.Name = "objectPanel";
+			this.objectPanel.Size = new System.Drawing.Size(547, 483);
+			this.objectPanel.TabIndex = 3;
+			// 
+			// vScrollBar2
+			// 
+			this.vScrollBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)));
+			this.vScrollBar2.Enabled = false;
+			this.vScrollBar2.Location = new System.Drawing.Point(553, 0);
+			this.vScrollBar2.Name = "vScrollBar2";
+			this.vScrollBar2.Size = new System.Drawing.Size(17, 489);
+			this.vScrollBar2.TabIndex = 0;
+			// 
+			// hScrollBar2
+			// 
+			this.hScrollBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.hScrollBar2.Enabled = false;
+			this.hScrollBar2.Location = new System.Drawing.Point(0, 489);
+			this.hScrollBar2.Name = "hScrollBar2";
+			this.hScrollBar2.Size = new System.Drawing.Size(553, 17);
+			this.hScrollBar2.TabIndex = 1;
 			// 
 			// tabPage3
 			// 
@@ -160,10 +267,14 @@
 			this.Name = "MainForm";
 			this.Text = "BlupiEdit";
 			this.Load += new System.EventHandler(this.MainForm_Load);
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
+			this.tabPage1.ResumeLayout(false);
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tabPage2.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -183,6 +294,14 @@
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.TabPage tabPage3;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.VScrollBar vScrollBar1;
+		private System.Windows.Forms.HScrollBar hScrollBar1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		private System.Windows.Forms.VScrollBar vScrollBar2;
+		private System.Windows.Forms.HScrollBar hScrollBar2;
+		private System.Windows.Forms.UserControl tilePanel;
+		private System.Windows.Forms.UserControl objectPanel;
     }
 }
 

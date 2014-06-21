@@ -12,8 +12,11 @@ namespace BlupiEdit
 {
 	public partial class LevelSelectForm : Form
 	{
-		public LevelSelectForm()
+		LevelSelectFormMode mode;
+
+		public LevelSelectForm(LevelSelectFormMode mode)
 		{
+			this.mode = mode;
 			InitializeComponent();
 		}
 
@@ -22,6 +25,8 @@ namespace BlupiEdit
 
 		private void LevelSelectForm_Load(object sender, EventArgs e)
 		{
+			if (mode == LevelSelectFormMode.Save)
+				openButton.Text = "&Save";
 			levelSetList.BeginUpdate();
 			for (int i = 1; i < 9; i++)
 				if (File.Exists(string.Format("data\\info{0:000}.blp", i)))
@@ -100,7 +105,9 @@ namespace BlupiEdit
 
 		private void numericUpDown1_ValueChanged(object sender, EventArgs e)
 		{
-			if ((levelList.SelectedIndex = levels.IndexOf((int)numericUpDown1.Value)) == -1)
+			levelList.SelectedIndex = levels.IndexOf((int)numericUpDown1.Value);
+			if (mode == LevelSelectFormMode.Save) return;
+			if (levelList.SelectedIndex == -1)
 				openButton.Text = "&New";
 			else
 				openButton.Text = "&Open";
@@ -109,5 +116,11 @@ namespace BlupiEdit
 		public int UserID { get { return users[levelSetList.SelectedIndex]; } }
 
 		public int LevelNum { get { return (int)numericUpDown1.Value; } }
+	}
+
+	public enum LevelSelectFormMode
+	{
+		Open,
+		Save
 	}
 }
