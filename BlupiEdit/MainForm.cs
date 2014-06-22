@@ -91,7 +91,7 @@ namespace BlupiEdit
 				{
 					userid = ls.UserID;
 					levelnum = ls.LevelNum;
-					LevelData.CurrentLevelPath = LevelData.GetLevelName(userid, levelnum);
+					LevelData.ChangeLevelPath(userid, levelnum);
 					LevelData.SaveLevel();
 					UpdateFormText();
 				}

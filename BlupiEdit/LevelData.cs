@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Drawing.Drawing2D;
 
 namespace BlupiEdit
 {
@@ -308,6 +309,11 @@ namespace BlupiEdit
 			CurrentLevel.Save(CurrentLevelPath);
 		}
 
+		public static void ChangeLevelPath(int userid, int levelnum)
+		{
+			CurrentLevelPath = GetLevelName(userid, levelnum);
+		}
+
 		public static double Distance(Point p1, Point p2)
 		{
 			return Math.Sqrt(Math.Pow(p2.X - p1.X, 2) + Math.Pow(p2.Y - p1.Y, 2));
@@ -446,6 +452,14 @@ namespace BlupiEdit
 		public static void DrawSprite(this Graphics gfx, Sprite spr, Point point)
 		{
 			gfx.DrawImage(spr.Image, point.X + spr.Offset.X, point.Y + spr.Offset.Y, spr.Width, spr.Height);
+		}
+
+		public static void SetOptions(this Graphics gfx)
+		{
+			gfx.CompositingQuality = CompositingQuality.HighSpeed;
+			gfx.InterpolationMode = InterpolationMode.NearestNeighbor;
+			gfx.PixelOffsetMode = PixelOffsetMode.None;
+			gfx.SmoothingMode = SmoothingMode.None;
 		}
 	}
 }

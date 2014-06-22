@@ -77,10 +77,7 @@ namespace BlupiEdit
 				int imgsize = LevelData.GridSize * 8;
 				Bitmap bmp = new Bitmap(imgsize, imgsize);
 				Graphics gfx = Graphics.FromImage(bmp);
-				gfx.CompositingQuality = CompositingQuality.HighSpeed;
-				gfx.InterpolationMode = InterpolationMode.NearestNeighbor;
-				gfx.PixelOffsetMode = PixelOffsetMode.None;
-				gfx.SmoothingMode = SmoothingMode.None;
+				gfx.SetOptions();
 				LevelData level = new LevelData(LevelData.GetLevelName(users[levelSetList.SelectedIndex], levels[levelList.SelectedIndex]));
 				int startx = level.HorizontalScroll ? Math.Max(Math.Min(level.StartPositions[0].X - (imgsize / 2), LevelData.PixelSize - imgsize), 0) : 0;
 				int starty = level.VerticalScroll ? Math.Max(Math.Min(level.StartPositions[0].Y - (imgsize / 2), LevelData.PixelSize - imgsize), 0) : 0;

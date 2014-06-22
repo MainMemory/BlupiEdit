@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,12 +49,26 @@
 			this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
 			this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.drawToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.selectToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.tileList1 = new BlupiEdit.TileList();
+			this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+			this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.Panel2.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
+			this.toolStrip1.SuspendLayout();
+			this.splitContainer2.Panel1.SuspendLayout();
+			this.splitContainer2.Panel2.SuspendLayout();
+			this.splitContainer2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -136,7 +151,7 @@
 			// 
 			// tabPage1
 			// 
-			this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+			this.tabPage1.Controls.Add(this.splitContainer1);
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -154,32 +169,31 @@
 			this.tableLayoutPanel1.Controls.Add(this.hScrollBar1, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.tilePanel, 0, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel1.Enabled = false;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(570, 506);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(388, 481);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
 			// vScrollBar1
 			// 
 			this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)));
-			this.vScrollBar1.Enabled = false;
-			this.vScrollBar1.Location = new System.Drawing.Point(553, 0);
+			this.vScrollBar1.Location = new System.Drawing.Point(371, 0);
 			this.vScrollBar1.Name = "vScrollBar1";
-			this.vScrollBar1.Size = new System.Drawing.Size(17, 489);
+			this.vScrollBar1.Size = new System.Drawing.Size(17, 464);
 			this.vScrollBar1.TabIndex = 0;
 			// 
 			// hScrollBar1
 			// 
 			this.hScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.hScrollBar1.Enabled = false;
-			this.hScrollBar1.Location = new System.Drawing.Point(0, 489);
+			this.hScrollBar1.Location = new System.Drawing.Point(0, 464);
 			this.hScrollBar1.Name = "hScrollBar1";
-			this.hScrollBar1.Size = new System.Drawing.Size(553, 17);
+			this.hScrollBar1.Size = new System.Drawing.Size(371, 17);
 			this.hScrollBar1.TabIndex = 1;
 			// 
 			// tilePanel
@@ -187,12 +201,12 @@
 			this.tilePanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tilePanel.Location = new System.Drawing.Point(3, 3);
 			this.tilePanel.Name = "tilePanel";
-			this.tilePanel.Size = new System.Drawing.Size(547, 483);
+			this.tilePanel.Size = new System.Drawing.Size(365, 458);
 			this.tilePanel.TabIndex = 2;
 			// 
 			// tabPage2
 			// 
-			this.tabPage2.Controls.Add(this.tableLayoutPanel2);
+			this.tabPage2.Controls.Add(this.splitContainer2);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -210,12 +224,13 @@
 			this.tableLayoutPanel2.Controls.Add(this.vScrollBar2, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.hScrollBar2, 0, 1);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel2.Enabled = false;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(570, 506);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(386, 506);
 			this.tableLayoutPanel2.TabIndex = 1;
 			// 
 			// objectPanel
@@ -223,15 +238,14 @@
 			this.objectPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.objectPanel.Location = new System.Drawing.Point(3, 3);
 			this.objectPanel.Name = "objectPanel";
-			this.objectPanel.Size = new System.Drawing.Size(547, 483);
+			this.objectPanel.Size = new System.Drawing.Size(363, 483);
 			this.objectPanel.TabIndex = 3;
 			// 
 			// vScrollBar2
 			// 
 			this.vScrollBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)));
-			this.vScrollBar2.Enabled = false;
-			this.vScrollBar2.Location = new System.Drawing.Point(553, 0);
+			this.vScrollBar2.Location = new System.Drawing.Point(369, 0);
 			this.vScrollBar2.Name = "vScrollBar2";
 			this.vScrollBar2.Size = new System.Drawing.Size(17, 489);
 			this.vScrollBar2.TabIndex = 0;
@@ -240,10 +254,9 @@
 			// 
 			this.hScrollBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.hScrollBar2.Enabled = false;
 			this.hScrollBar2.Location = new System.Drawing.Point(0, 489);
 			this.hScrollBar2.Name = "hScrollBar2";
-			this.hScrollBar2.Size = new System.Drawing.Size(553, 17);
+			this.hScrollBar2.Size = new System.Drawing.Size(369, 17);
 			this.hScrollBar2.TabIndex = 1;
 			// 
 			// tabPage3
@@ -255,6 +268,96 @@
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "Properties";
 			this.tabPage3.UseVisualStyleBackColor = true;
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+			this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+			this.splitContainer1.Panel1.Controls.Add(this.toolStrip1);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.tileList1);
+			this.splitContainer1.Size = new System.Drawing.Size(570, 506);
+			this.splitContainer1.SplitterDistance = 388;
+			this.splitContainer1.TabIndex = 1;
+			// 
+			// toolStrip1
+			// 
+			this.toolStrip1.Enabled = false;
+			this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.drawToolStripButton,
+            this.selectToolStripButton});
+			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+			this.toolStrip1.Name = "toolStrip1";
+			this.toolStrip1.Size = new System.Drawing.Size(388, 25);
+			this.toolStrip1.TabIndex = 1;
+			this.toolStrip1.Text = "toolStrip1";
+			// 
+			// drawToolStripButton
+			// 
+			this.drawToolStripButton.Checked = true;
+			this.drawToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.drawToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("drawToolStripButton.Image")));
+			this.drawToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.drawToolStripButton.Name = "drawToolStripButton";
+			this.drawToolStripButton.Size = new System.Drawing.Size(54, 22);
+			this.drawToolStripButton.Text = "Draw";
+			// 
+			// selectToolStripButton
+			// 
+			this.selectToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("selectToolStripButton.Image")));
+			this.selectToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.selectToolStripButton.Name = "selectToolStripButton";
+			this.selectToolStripButton.Size = new System.Drawing.Size(58, 22);
+			this.selectToolStripButton.Text = "Select";
+			// 
+			// tileList1
+			// 
+			this.tileList1.BackColor = System.Drawing.SystemColors.Window;
+			this.tileList1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tileList1.Enabled = false;
+			this.tileList1.Location = new System.Drawing.Point(0, 0);
+			this.tileList1.Name = "tileList1";
+			this.tileList1.ScrollValue = 0;
+			this.tileList1.SelectedIndex = -1;
+			this.tileList1.Size = new System.Drawing.Size(178, 506);
+			this.tileList1.TabIndex = 0;
+			// 
+			// splitContainer2
+			// 
+			this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+			this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+			this.splitContainer2.Name = "splitContainer2";
+			// 
+			// splitContainer2.Panel1
+			// 
+			this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel2);
+			// 
+			// splitContainer2.Panel2
+			// 
+			this.splitContainer2.Panel2.Controls.Add(this.propertyGrid1);
+			this.splitContainer2.Size = new System.Drawing.Size(570, 506);
+			this.splitContainer2.SplitterDistance = 386;
+			this.splitContainer2.TabIndex = 2;
+			// 
+			// propertyGrid1
+			// 
+			this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.propertyGrid1.Enabled = false;
+			this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
+			this.propertyGrid1.Name = "propertyGrid1";
+			this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
+			this.propertyGrid1.Size = new System.Drawing.Size(180, 506);
+			this.propertyGrid1.TabIndex = 0;
+			this.propertyGrid1.ToolbarVisible = false;
 			// 
 			// MainForm
 			// 
@@ -275,6 +378,15 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tabPage2.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel1.PerformLayout();
+			this.splitContainer1.Panel2.ResumeLayout(false);
+			this.splitContainer1.ResumeLayout(false);
+			this.toolStrip1.ResumeLayout(false);
+			this.toolStrip1.PerformLayout();
+			this.splitContainer2.Panel1.ResumeLayout(false);
+			this.splitContainer2.Panel2.ResumeLayout(false);
+			this.splitContainer2.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -302,6 +414,13 @@
 		private System.Windows.Forms.HScrollBar hScrollBar2;
 		private System.Windows.Forms.UserControl tilePanel;
 		private System.Windows.Forms.UserControl objectPanel;
+		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.ToolStrip toolStrip1;
+		private System.Windows.Forms.ToolStripButton drawToolStripButton;
+		private System.Windows.Forms.ToolStripButton selectToolStripButton;
+		private TileList tileList1;
+		private System.Windows.Forms.SplitContainer splitContainer2;
+		private System.Windows.Forms.PropertyGrid propertyGrid1;
     }
 }
 
