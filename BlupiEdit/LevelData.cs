@@ -122,8 +122,8 @@ namespace BlupiEdit
 	public class LevelData
 	{
 		#region Instance Members
-		public byte MajorVersion { get; set; }
-		public byte MinorVersion { get; set; }
+		public ushort MajorVersion { get; set; }
+		public ushort MinorVersion { get; set; }
 		public bool HorizontalScroll { get; set; }
 		public bool VerticalScroll { get; set; }
 		public short Music { get; set; }
@@ -150,8 +150,8 @@ namespace BlupiEdit
 			using (str)
 			using (BinaryReader reader = new BinaryReader(str))
 			{
-				MajorVersion = reader.ReadByte();
-				MinorVersion = reader.ReadByte();
+				MajorVersion = reader.ReadUInt16();
+				MinorVersion = reader.ReadUInt16();
 				str.Seek(0xD4, SeekOrigin.Begin);
 				HorizontalScroll = reader.ReadInt32() == 100;
 				VerticalScroll = reader.ReadInt32() == 100;
